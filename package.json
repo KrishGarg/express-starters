@@ -8,9 +8,11 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "prestart": "yarn build",
-    "deploy:deta": "yarn build && cd dist && deta deploy"
+    "ensure:config": "node scripts/ensureDetaConfig.js",
+    "deploy:deta": "yarn build && yarn ensure:config && cd dist && deta deploy"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.17.2"
   },
   "devDependencies": {
